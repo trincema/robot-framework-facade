@@ -1,5 +1,5 @@
 *** Settings ***
-Library         SeleniumLibrary
+Library                 SeleniumLibrary
 
 *** Keywords ***
 Click
@@ -40,9 +40,22 @@ Click Element And Retry Until Success
     Wait Until Keyword Succeeds     5x      5 sec       Click Element       ${element}
 
 Input Value
-    [Documentation]     Input a text to an <input> element.
-    [Arguments]     ${element}              ${value}                        ${timeout}=30s
-    
+    [Documentation]     Set the given text to an <input> field element, replacing the current value.
+    [Arguments]     ${locator}              ${value}                        ${timeout}=30s
+    Wait Until Element Is Visible           ${locator}                      timeout=${timeout}
+    Input Text      ${locator}              ${value}
+
+Append Value
+    [Documentation]     Append the given text to an <input> element current value.
+    [Arguments]     ${locator}              ${value}                        ${timeout}=30s
+    Wait Until Element Is Visible           ${locator}                      timeout=${timeout}
+    Input Text      ${locator}              ${value}                        clear=False
+
+Clear Value
+    [Documentation]     Append the given text to an <input> element current value.
+    [Arguments]     ${locator}              ${timeout}=30s
+    Wait Until Element Is Visible           ${locator}                      timeout=${timeout}
+    Clear Element Text                      ${locator}
 
 Upload File
     [Documentation]     Uploading a file to a HTML element of type <file>.
