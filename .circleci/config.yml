@@ -1,0 +1,28 @@
+version: 2.1
+
+orbs:
+  python: circleci/python@2.1.1
+  heroku: circleci/heroku@2.0.0
+
+jobs:
+  build_and_test: # this can be any name you choose
+    executor: python/default # use the default executor defined within the orb
+    steps:
+      - checkout # checkout source code
+      - python/install-packages:
+          pkg-manager: pip
+      - run:
+          name: Run tests
+          command: python -m robot test
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+  deploy: # this can be any name you choose
+    executor: heroku/default # use the default executor defined within the orb
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - heroku/deploy-via-git:
+          force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
+          
