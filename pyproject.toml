@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robotframework-seleniumlibrary-facade"
+version = "1.0.0"
+description = "gTAA implementation for Robot Framework SeleniumLibrary"
+readme = "README.md"
+authors = [{ name = "Emanuel TRINC", email = "emanuel.trinc@yahoo.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["feed", "reader", "tutorial"]
+dependencies = [
+    "robotframework-seleniumlibrary >= 6.0.0",
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/trincema/robotframework-seleniumlibrary-facade"
+
+[project.scripts]
+realpython = "reader.__main__:main"

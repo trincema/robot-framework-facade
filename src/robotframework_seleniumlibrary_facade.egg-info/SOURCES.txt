@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/robotframework_seleniumlibrary_facade.egg-info/PKG-INFO
+src/robotframework_seleniumlibrary_facade.egg-info/SOURCES.txt
+src/robotframework_seleniumlibrary_facade.egg-info/dependency_links.txt
+src/robotframework_seleniumlibrary_facade.egg-info/entry_points.txt
+src/robotframework_seleniumlibrary_facade.egg-info/requires.txt
+src/robotframework_seleniumlibrary_facade.egg-info/top_level.txt
